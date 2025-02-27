@@ -25,6 +25,7 @@ export function initController(program: Command) {
           },
           {
             name: "Example task 2",
+            alias: ["ex2"],
             action: 'echo "This is a second task"',
           },
         ],

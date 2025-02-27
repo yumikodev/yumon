@@ -19,7 +19,7 @@ export function taskListController(program: Command) {
         const tasks = await configParser(configPath);
 
         const choices = tasks.map((t) => ({
-          name: t.name,
+          name: t.alias ? `${t.name} (alias: ${t.alias.join()})` : t.name,
           description: t.description,
           value: t.action,
         }));

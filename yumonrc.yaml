@@ -1,8 +1,12 @@
 tasks:
   - name: Hello world
+    alias:
+      - greet
     description: Show a "Hello world"
     action: echo "Hello world"
     
   - name: build
+    alias:
+      - b
     description: Run "pnpm build" command
     action: pnpm build

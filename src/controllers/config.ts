@@ -2,9 +2,10 @@ import { Command } from "commander";
 
 export const CONFIG_FILE = "yumonrc.yaml";
 
-export class Task {
+export interface Task {
   name: string;
-  description: string;
+  alias?: string[];
+  description?: string;
   action: string;
 }
 
