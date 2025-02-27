@@ -14,7 +14,7 @@ export function taskRunnerController(program: Command) {
         const { config } = this.optsWithGlobals();
         const configPath = join(process.cwd(), config);
 
-        const tasks = await configParser(configPath);
+        const { tasks } = await configParser(configPath);
 
         const task = tasks.find(
           (t) =>

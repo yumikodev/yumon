@@ -1,5 +1,6 @@
 import { Config, Task } from "@/controllers/config.js";
-import Joi from "joi";
+import Joi, { ValidationError } from "joi";
+import { YumonError } from "./error.js";
 
 export const configSchema = Joi.object<Config>({
   tasks: Joi.array().items(
@@ -11,3 +12,15 @@ export const configSchema = Joi.object<Config>({
     })
   ),
 });
+
+export async function configValidator<T>(obj: T) {
+  const config = await configSchema
+    .validateAsync(obj)
+    .catch((e: ValidationError) => {
+      throw new YumonError(e.message, {
+        cause: e.cause,
+      });
+    });
+
+  return config;
+}

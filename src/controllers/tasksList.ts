@@ -16,7 +16,7 @@ export function taskListController(program: Command) {
         const { config } = this.optsWithGlobals();
         const configPath = join(process.cwd(), config);
 
-        const tasks = await configParser(configPath);
+        const { tasks } = await configParser(configPath);
 
         const choices = tasks.map((t) => ({
           name: t.alias ? `${t.name} (alias: ${t.alias.join()})` : t.name,

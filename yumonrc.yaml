@@ -4,7 +4,6 @@ tasks:
       - greet
     description: Show a "Hello world"
     action: echo "Hello world"
-    
   - name: build
     alias:
       - b
