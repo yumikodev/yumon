@@ -8,6 +8,7 @@ export function taskRunnerController(program: Command) {
   program
     .command("run <taskName>")
     .alias("r")
+    .description("Execute a task by the name")
     .action(async function (taskName: string) {
       try {
         const { config } = this.optsWithGlobals();
