@@ -1,3 +1,5 @@
+import chalk from "chalk";
+
 export class YumonError extends Error {
-  name = `[${YumonError.name}]`;
+  name = chalk.red(`[${YumonError.name}]`);
 }
