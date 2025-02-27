@@ -9,6 +9,7 @@ import { configValidator } from "@/utils/validators.js";
 export function addTaskController(program: Command) {
   program
     .command("add")
+    .alias("a")
     .description("Add a new task in the config file")
     .action(async function () {
       const { config } = this.optsWithGlobals();

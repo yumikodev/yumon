@@ -6,11 +6,11 @@ import yaml from "js-yaml";
 import { writeFile } from "node:fs/promises";
 import { configValidator } from "@/utils/validators.js";
 
-export function editTaskController(program: Command) {
+export function deleteTaskController(program: Command) {
   program
-    .command("edit")
-    .alias("e")
-    .description("Edit a task in the config file")
+    .command("delete")
+    .alias("d")
+    .description("Delete a task in the config file")
     .action(async function () {
       const { config } = this.optsWithGlobals();
       const configPath = join(process.cwd(), config);
@@ -27,46 +27,12 @@ export function editTaskController(program: Command) {
         {
           name: "taskIndex",
           type: "select",
-          message: "Select a task to edit:",
+          message: "Select a task to delete:",
           choices,
         },
       ]);
 
-      const task = tasks[answer.taskIndex];
-
-      const { name, action, alias, description } = await inquirer.prompt([
-        {
-          name: "name",
-          type: "input",
-          message: "Task name:",
-          default: task.name,
-        },
-        {
-          name: "description",
-          type: "input",
-          message: "Task description:",
-          default: task.description,
-        },
-        {
-          name: "alias",
-          type: "input",
-          message: 'Task aliases (separated by ","):',
-          default: task.alias?.join(),
-        },
-        {
-          name: "action",
-          type: "input",
-          message: "Task action:",
-          default: task.action,
-        },
-      ]);
-
-      tasks[answer.taskIndex] = {
-        name,
-        ...(alias && { alias: alias.split(",") }),
-        ...(description && { description }),
-        action,
-      };
+      tasks.splice(answer.taskIndex, 1);
 
       console.log("Validating information in memory..");
       const validatedData = await configValidator({
@@ -78,6 +44,6 @@ export function editTaskController(program: Command) {
       const data = yaml.dump(validatedData);
 
       await writeFile(configPath, data);
-      console.log("Task edited successfully!");
+      console.log("Task deleted successfully!");
     });
 }
