@@ -1,6 +1,6 @@
 {
   "name": "yumon",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A minimalist task executor",
   "type": "module",
   "files": [
@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node dist/yumon.js",
     "dev": "tsx src/yumon.ts",
-    "build": "tsc && tsc-alias"
+    "build": "rm -r ./dist/ && tsc && tsc-alias"
   },
   "license": "MIT",
   "author": "YumikoDev",
