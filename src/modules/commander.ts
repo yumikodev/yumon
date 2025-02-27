@@ -5,6 +5,7 @@ import { pkg } from "@/utils/pkg.js";
 import { taskRunnerController } from "@/controllers/taskRunner.js";
 import { initController } from "@/controllers/init.js";
 import { addTaskController } from "@/controllers/addTask.js";
+import { editTaskController } from "@/controllers/editTask.js";
 
 program
   .version(pkg.version, "-v, --version")
@@ -15,5 +16,6 @@ initController(program);
 taskListController(program);
 taskRunnerController(program);
 addTaskController(program);
+editTaskController(program);
 
 program.parse(process.argv);
