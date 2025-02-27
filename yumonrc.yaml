@@ -1,0 +1,8 @@
+tasks:
+  - name: Hello world
+    description: Show a "Hello world"
+    action: echo "Hello world"
+    
+  - name: build
+    description: Run "pnpm build" command
+    action: pnpm build

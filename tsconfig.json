@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "declaration": true,
+    "outDir": "./dist",
+    "strict": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noUnusedParameters": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["./src"]
+}

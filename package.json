@@ -1,0 +1,48 @@
+{
+  "name": "yumon",
+  "version": "1.0.0",
+  "description": "A minimalist task executor",
+  "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "yumon": "./dist/index.js"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "build": "tsc && tsc-alias"
+  },
+  "license": "MIT",
+  "author": "YumikoDev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumikodev/yumon.git"
+  },
+  "keywords": [
+    "task",
+    "yumon",
+    "cli",
+    "executor"
+  ],
+  "bugs": {
+    "url": "https://github.com/yumikodev/yumon/issues"
+  },
+  "homepage": "https://github.com/yumikodev/yumon#readme",
+  "devDependencies": {
+    "@types/js-yaml": "4.0.9",
+    "@types/node": "22.13.5",
+    "nodemon": "3.1.9",
+    "tsc-alias": "1.8.11",
+    "tsx": "4.19.3",
+    "typescript": "5.7.3"
+  },
+  "dependencies": {
+    "commander": "13.1.0",
+    "inquirer": "12.4.2",
+    "joi": "17.13.3",
+    "js-yaml": "4.1.0"
+  }
+}
